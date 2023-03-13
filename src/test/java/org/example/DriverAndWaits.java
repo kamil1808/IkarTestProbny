@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverAndWaits {
     static WebDriver driver;
-    protected WebDriverWait driverWait;
+    protected static WebDriverWait driverWait;
 
     private final File file = new File("C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe");
 
@@ -39,7 +39,7 @@ public class DriverAndWaits {
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
     }
-    public void waitForLoader() {
+    public void waitForLoaderToBeInvisible() {
         WebElement Loader = driver.findElement(By.id("mLoader"));
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.refreshed(ExpectedConditions.invisibilityOf(Loader)));
@@ -47,5 +47,13 @@ public class DriverAndWaits {
     public void waitForPageFullyLoaded() {
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.jsReturnsValue("return document.readyState==\"complete\";"));
+    }
+    public void waitForPageToChange(String UrlToBeDiffrentFrom)  {
+        driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
+                .until(ExpectedConditions.not(ExpectedConditions.urlToBe(UrlToBeDiffrentFrom)));
+    }
+    public void waitForPageToBe(String DestinyUrl) {
+        driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
+                .until(ExpectedConditions.urlToBe(DestinyUrl));
     }
 }

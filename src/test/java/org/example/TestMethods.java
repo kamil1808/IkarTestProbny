@@ -8,21 +8,22 @@ public class TestMethods extends WebElements {
 
     public void goNextStep() {
         waitForElementClickable(By.id("bdvOrderNextStep"));
-        waitForLoader();
+        waitForLoaderToBeInvisible();
         driver.findElement(By.id("bdvOrderNextStep")).click();
     }
 
     public void checkCurrent(String elementId) {
 
-        waitForLoader();
+        waitForLoaderToBeInvisible();
         WebElement zakladka = driver.findElement(By.id(elementId));
         String CurrentCSSClass = zakladka.getAttribute("class");
         System.out.println("Jestesmy przy zakladce " + zakladka.getText());
-        waitForLoader();
+        waitForLoaderToBeInvisible();
         Assert.isTrue(CurrentCSSClass.equals("current"), "OBECNA ZAKLADKA NIE PODSWIETLONA");
     }
 
     public void chooseCustomer(String kontrahent) throws InterruptedException {
+        waitForPageFullyLoaded();
         driver.findElement(By.xpath("//*[@id=\"m_ver_menu\"]/ul/li[7]")).click();
         driver.findElement(By.xpath("//*[@id=\"m_ver_menu\"]/ul/li[7]/div/ul/li[2]")).click();
 
@@ -40,6 +41,6 @@ public class TestMethods extends WebElements {
     public void clickSaveButton() {
         waitForElementClickable(By.id("bdvSaveOrder"));
         driver.findElement(By.id("bdvSaveOrder")).click();
-        waitForLoader();
+        waitForLoaderToBeInvisible();
     }
 }

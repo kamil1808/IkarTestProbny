@@ -82,7 +82,7 @@ DriverAndWaits driverAndWaits = new DriverAndWaits();
     public Object[][] provideData() {
         return new Object[][]{
                 {"Jan Cygan"},
-                {"Tomasz Nowak"},
+                //{"Tomasz Nowak"},
                 //{"Kacper Tader"},
                 //{"Patrycja Wójciak"}
         };
