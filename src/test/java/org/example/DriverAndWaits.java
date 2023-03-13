@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -14,15 +15,16 @@ public class DriverAndWaits {
     static WebDriver driver;
     protected static WebDriverWait driverWait;
 
+    private File file = new File("C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe");
 
 
     public static void setDefaultImplicitlyWaits() {
         setImplicitlyWaits(20_000);
     }
 
-    public static void driverSetUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe");
-
+    public void driverSetUp() {
+        System.setProperty("webdriver.chrome.driver", file.getPath());
+        //"C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe"
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 

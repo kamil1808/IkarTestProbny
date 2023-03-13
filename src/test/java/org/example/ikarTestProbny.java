@@ -8,10 +8,10 @@ import org.testng.annotations.Test;
 
 public class ikarTestProbny {
 
-
+DriverAndWaits driverAndWaits = new DriverAndWaits();
     @BeforeTest
     public void prepareWebsite() {
-        DriverAndWaits.driverSetUp();
+        driverAndWaits.driverSetUp();
         Before before = new Before();
         before.goToWebsite("https://uatikar.blachotrapez.eu/");
         before.logIn("t.kowalski@blachotrapez.com.pl", "QAZxswKS1@");
@@ -61,13 +61,13 @@ public class ikarTestProbny {
 
         //ZAŁĄCZNIKI
         testMethods.checkCurrent("bdvAttachmentsBreadcrumb");
-        testMethods.saveAtachments();
+        testMethods.clickSaveButton();
         testMethods.goNextStep();
 
         //PODSUMOWANIE
         testMethods.checkCurrent("bdvSummaryBreadcrumb");
 
-
+        testMethods.clickSaveButton();
     }
 
 

@@ -37,8 +37,9 @@ public class TestMethods extends WebElements {
         driver.findElement(By.id("bdvCustomerDialogApply0")).click();
     }
 
-    public void saveAtachments() {
+    public void clickSaveButton() {
         waitForElementClickable(By.id("bdvSaveOrder"));
         driver.findElement(By.id("bdvSaveOrder")).click();
+        waitForLoader();
     }
 }
