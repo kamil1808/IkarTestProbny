@@ -13,18 +13,17 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverAndWaits {
     static WebDriver driver;
-    protected static WebDriverWait driverWait;
+    protected WebDriverWait driverWait;
 
-    private File file = new File("C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe");
+    private final File file = new File("C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe");
 
 
-    public static void setDefaultImplicitlyWaits() {
+    public void setDefaultImplicitlyWaits() {
         setImplicitlyWaits(20_000);
     }
 
     public void driverSetUp() {
         System.setProperty("webdriver.chrome.driver", file.getPath());
-        //"C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe"
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
@@ -32,18 +31,21 @@ public class DriverAndWaits {
         setDefaultImplicitlyWaits();
         driverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
-    public static void setImplicitlyWaits(int milliseconds) {
+    public void setImplicitlyWaits(int milliseconds) {
         driver.manage().timeouts().implicitlyWait(milliseconds, TimeUnit.MILLISECONDS);
     }
 
-    public static void waitForElementClickable(By locator) {
+    public void waitForElementClickable(By locator) {
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
     }
-    public static void waitForLoader() {
+    public void waitForLoader() {
         WebElement Loader = driver.findElement(By.id("mLoader"));
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.refreshed(ExpectedConditions.invisibilityOf(Loader)));
     }
+    public void waitForPageFullyLoaded() {
+        driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
+                .until(ExpectedConditions.jsReturnsValue("return document.readyState==\"complete\";"));
+    }
 }
-//By.xpath("//*[@id=\"mLoader\"]")

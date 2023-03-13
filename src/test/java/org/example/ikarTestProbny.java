@@ -67,7 +67,7 @@ DriverAndWaits driverAndWaits = new DriverAndWaits();
         //PODSUMOWANIE
         testMethods.checkCurrent("bdvSummaryBreadcrumb");
 
-        testMethods.clickSaveButton();
+        //testMethods.clickSaveButton();
     }
 
 

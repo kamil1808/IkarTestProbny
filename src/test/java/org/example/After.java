@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 
 public class After extends WebElements {
 
-    public void logOut() throws InterruptedException {
+    public void logOut() {
         driver.findElement(By.xpath("//*[@id=\"m_header_topbar\"]/div/ul/button")).click();
-        Thread.sleep(3000);
+        waitForPageFullyLoaded();
         String currenturl = driver.getCurrentUrl();
         Assert.isTrue(currenturl.equals(WebSiteURL), "NIE POWROCONO NA POCZATKOWA STRONE");
     }
