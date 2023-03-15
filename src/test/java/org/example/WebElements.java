@@ -5,8 +5,14 @@ import org.openqa.selenium.WebElement;
 
 import static org.example.DriverAndWaits.driver;
 
-public class WebElements extends DriverAndWaits {
-    String WebSiteURL = "https://uatikar.blachotrapez.eu/";
-        //WebElement Loader = driver.findElement(By.xpath("//*[@id=\"mLoader\"]"));
-       // WebElement NextStepButton = driver.findElement(By.id("bdvOrderNextStep"));
+public class WebElements  {
+    protected String WebSiteURL = "https://uatikar.blachotrapez.eu/";
+    protected String email = "t.kowalski@blachotrapez.com.pl";
+    protected String password = "QAZxswKS1@";
+    DriverAndWaits driverAndWaits = new DriverAndWaits();
+    Before before = new Before();
+    TestMethods testMethods = new TestMethods();
+    After after = new After();
+
+
 }

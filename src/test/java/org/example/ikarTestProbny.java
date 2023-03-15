@@ -6,22 +6,17 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class ikarTestProbny {
-private String email = "t.kowalski@blachotrapez.com.pl";
-private String password = "QAZxswKS1@";
-DriverAndWaits driverAndWaits = new DriverAndWaits();
+public class ikarTestProbny extends WebElements{
+
     @BeforeTest
     public void prepareWebsite() {
         driverAndWaits.driverSetUp();
-        Before before = new Before();
-        before.goToWebsite("https://uatikar.blachotrapez.eu/");
+        before.goToWebsite(WebSiteURL);
         before.logIn(email, password);
     }
 
     @Test(dataProvider = "inputData")
     public void makeOrder(String searchQuery) {
-        TestMethods testMethods = new TestMethods();
-
         testMethods.chooseCustomer(searchQuery);
 
         //KONTRAHENT
@@ -71,10 +66,8 @@ DriverAndWaits driverAndWaits = new DriverAndWaits();
         //testMethods.clickSaveButton();
     }
 
-
     @AfterTest
     public void closeWebsite() {
-        After after = new After();
         after.logOut();
         after.closeAndQuit();
     }
@@ -84,7 +77,6 @@ DriverAndWaits driverAndWaits = new DriverAndWaits();
         return new Object[][]{
                 {"Jan Cygan"},
                 //{"Tomasz Nowak"},
-                //{"Kacper Tader"},
                 //{"Patrycja Wójciak"}
         };
     }

@@ -4,7 +4,7 @@ import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class TestMethods extends WebElements {
+public class TestMethods extends DriverAndWaits {
 
     public void goNextStep() {
         waitForElementClickable(By.id("bdvOrderNextStep"));

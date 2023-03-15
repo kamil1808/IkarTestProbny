@@ -4,14 +4,14 @@ import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 
 
-public class After extends WebElements {
+public class After extends DriverAndWaits {
 
     public void logOut() {
         driver.findElement(By.xpath("//*[@id=\"m_header_topbar\"]/div/ul/button")).click();
         waitForPageFullyLoaded();
         waitForElementToBeDisplayed("m_login");
-        waitForPageToBe(WebSiteURL);
-        Assert.isTrue(driver.getCurrentUrl().equals(WebSiteURL), "NIE POWROCONO NA POCZATKOWA STRONE");
+        waitForPageToBe("https://uatikar.blachotrapez.eu/");
+        Assert.isTrue(driver.getCurrentUrl().equals("https://uatikar.blachotrapez.eu/"), "NIE POWROCONO NA POCZATKOWA STRONE");
         System.out.println("POPRAWNIE WYLOGOWANO");
     }
     public boolean isDriverClosed() {
