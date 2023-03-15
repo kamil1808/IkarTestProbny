@@ -19,7 +19,7 @@ DriverAndWaits driverAndWaits = new DriverAndWaits();
     }
 
     @Test(dataProvider = "inputData")
-    public void makeOrder(String searchQuery) throws InterruptedException {
+    public void makeOrder(String searchQuery) {
         TestMethods testMethods = new TestMethods();
 
         testMethods.chooseCustomer(searchQuery);

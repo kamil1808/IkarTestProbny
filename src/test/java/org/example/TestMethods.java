@@ -22,7 +22,7 @@ public class TestMethods extends WebElements {
         Assert.isTrue(CurrentCSSClass.equals("current"), "OBECNA ZAKLADKA NIE PODSWIETLONA");
     }
 
-    public void chooseCustomer(String kontrahent) throws InterruptedException {
+    public void chooseCustomer(String kontrahent) {
         waitForPageFullyLoaded();
         driver.findElement(By.xpath("//*[@id=\"m_ver_menu\"]/ul/li[7]")).click();
         driver.findElement(By.xpath("//*[@id=\"m_ver_menu\"]/ul/li[7]/div/ul/li[2]")).click();
@@ -33,12 +33,11 @@ public class TestMethods extends WebElements {
 
         driver.findElement(By.id("bdvSearchCustomersList")).sendKeys(kontrahent);
 
-        Thread.sleep(3000);
-        //waitForLoaderToBeInvisible();
-        //waitForElementClickable(By.id("bdvCheckCustomer0"));
+        waitForTextOnElementToBe(By.xpath("/html/body/ngb-modal-window/div/div/m-select-customer-dialog/div[2]/div[2]/div[1]/table/tbody/tr[1]/td[2]"), "10CYGAN");
 
+
+        waitForElementClickable(By.id("bdvCheckCustomer0"));
         driver.findElement(By.id("bdvCheckCustomer0")).click();
-
         //Assert.isTrue(driver.findElement(By.id("bdvCheckCustomer0")).isSelected(), "NIE WYBRANO POPRAWNEJ OSOBY");
         driver.findElement(By.id("bdvCustomerDialogApply0")).click();
     }

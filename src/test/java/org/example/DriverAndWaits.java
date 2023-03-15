@@ -61,4 +61,8 @@ public class DriverAndWaits {
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOf(element));
     }
+    public void waitForTextOnElementToBe(By locator, String text) {
+        driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
+                .until(ExpectedConditions.textToBe(locator, text));
+    }
 }
