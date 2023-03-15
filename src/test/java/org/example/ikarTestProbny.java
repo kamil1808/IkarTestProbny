@@ -19,49 +19,49 @@ public class ikarTestProbny extends WebElements{
     public void makeOrder(String searchQuery) {
         testMethods.chooseCustomer(searchQuery);
 
-        //KONTRAHENT
-        testMethods.checkCurrent("bdvCustomerBreadcrumb");
+        //KONTRAHENT - CUSTOMER
+        testMethods.checkCurrentTab(CustomerTabId);
         testMethods.goNextStep();
 
-        //DOSTAWA
-        testMethods.checkCurrent("bdvDeliveryBreadcrumb");
+        //DOSTAWA - DELIVERY
+        testMethods.checkCurrentTab(DeliveryTabId);
         testMethods.goNextStep();
 
-        //PROFIL
-        testMethods.checkCurrent("bdvProfilesBreadcrumb");
+        //PROFIL - PROFILES
+        testMethods.checkCurrentTab("bdvProfilesBreadcrumb");
         testMethods.goNextStep();
 
-        //OBRÓBKI
-        testMethods.checkCurrent("bdvProcessingProductsBreadcrumb");
+        //OBRÓBKI - PROCESSING PRODUCTS
+        testMethods.checkCurrentTab("bdvProcessingProductsBreadcrumb");
         testMethods.goNextStep();
 
-        //TOWARY HANDLOWE
-        testMethods.checkCurrent("bdvCommodityGoodsBreadcrumb");
+        //TOWARY HANDLOWE - COMMODITY GOODS
+        testMethods.checkCurrentTab("bdvCommodityGoodsBreadcrumb");
         testMethods.goNextStep();
 
-        //USŁUGI
-        testMethods.checkCurrent("bdvServicesBreadcrumb");
+        //USŁUGI - SERVICES
+        testMethods.checkCurrentTab("bdvServicesBreadcrumb");
         testMethods.goNextStep();
 
-        //SPRZEDAŻ 8%
-        testMethods.checkCurrent("bdvEightPercentBreadcrumb");
+        //SPRZEDAŻ 8% - EIGHT PERCENT
+        testMethods.checkCurrentTab("bdvEightPercentBreadcrumb");
         testMethods.goNextStep();
 
-        //RABATY
-        testMethods.checkCurrent("bdvDiscountsBreadcrumb");
+        //RABATY - DISCOUNTS
+        testMethods.checkCurrentTab("bdvDiscountsBreadcrumb");
         testMethods.goNextStep();
 
-        //DODATKOWE INFORMACJE
-        testMethods.checkCurrent("bdvAdditionalInformationsBreadcrumb");
+        //DODATKOWE INFORMACJE - ADDITIONAL INFORMATIONS
+        testMethods.checkCurrentTab("bdvAdditionalInformationsBreadcrumb");
         testMethods.goNextStep();
 
-        //ZAŁĄCZNIKI
-        testMethods.checkCurrent("bdvAttachmentsBreadcrumb");
+        //ZAŁĄCZNIKI - ATTACHMENTS
+        testMethods.checkCurrentTab("bdvAttachmentsBreadcrumb");
         testMethods.clickSaveButton();
         testMethods.goNextStep();
 
-        //PODSUMOWANIE
-        testMethods.checkCurrent("bdvSummaryBreadcrumb");
+        //PODSUMOWANIE - SUMMARY
+        testMethods.checkCurrentTab("bdvSummaryBreadcrumb");
 
         //testMethods.clickSaveButton();
     }

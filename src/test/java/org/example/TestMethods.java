@@ -12,10 +12,10 @@ public class TestMethods extends DriverAndWaits {
         driver.findElement(By.id("bdvOrderNextStep")).click();
     }
 
-    public void checkCurrent(String elementId) {
+    public void checkCurrentTab(String TabId) {
 
         waitForLoaderToBeInvisible();
-        WebElement zakladka = driver.findElement(By.id(elementId));
+        WebElement zakladka = driver.findElement(By.id(TabId));
         String CurrentCSSClass = zakladka.getAttribute("class");
         System.out.println("Jestesmy przy zakladce " + zakladka.getText());
         waitForLoaderToBeInvisible();

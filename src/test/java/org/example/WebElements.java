@@ -13,6 +13,6 @@ public class WebElements  {
     Before before = new Before();
     TestMethods testMethods = new TestMethods();
     After after = new After();
-
-
+    protected String CustomerTabId = "bdvCustomerBreadcrumb";
+    protected String DeliveryTabId = "bdvDeliveryBreadcrumb";
 }
