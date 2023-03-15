@@ -7,14 +7,15 @@ import org.testng.annotations.Test;
 
 
 public class ikarTestProbny {
-
+private String email = "t.kowalski@blachotrapez.com.pl";
+private String password = "QAZxswKS1@";
 DriverAndWaits driverAndWaits = new DriverAndWaits();
     @BeforeTest
     public void prepareWebsite() {
         driverAndWaits.driverSetUp();
         Before before = new Before();
         before.goToWebsite("https://uatikar.blachotrapez.eu/");
-        before.logIn("t.kowalski@blachotrapez.com.pl", "QAZxswKS1@");
+        before.logIn(email, password);
     }
 
     @Test(dataProvider = "inputData")
@@ -72,7 +73,7 @@ DriverAndWaits driverAndWaits = new DriverAndWaits();
 
 
     @AfterTest
-    public void closeWebsite() throws InterruptedException {
+    public void closeWebsite() {
         After after = new After();
         after.logOut();
         after.closeAndQuit();

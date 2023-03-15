@@ -26,14 +26,19 @@ public class TestMethods extends WebElements {
         waitForPageFullyLoaded();
         driver.findElement(By.xpath("//*[@id=\"m_ver_menu\"]/ul/li[7]")).click();
         driver.findElement(By.xpath("//*[@id=\"m_ver_menu\"]/ul/li[7]/div/ul/li[2]")).click();
-
+        waitForPageFullyLoaded();
         driver.findElement(By.id("bdvOpenSelectCustomerDialog")).click();
-        driver.findElement(By.id("bdvSearchCustomersList")).sendKeys(kontrahent);
-        waitForElementClickable(By.id("bdvCheckCustomer0"));
 
-        Thread.sleep(3000); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //waitForLoaderToBeInvisible();
+
+        driver.findElement(By.id("bdvSearchCustomersList")).sendKeys(kontrahent);
+
+        Thread.sleep(3000);
+        //waitForLoaderToBeInvisible();
+        //waitForElementClickable(By.id("bdvCheckCustomer0"));
 
         driver.findElement(By.id("bdvCheckCustomer0")).click();
+
         //Assert.isTrue(driver.findElement(By.id("bdvCheckCustomer0")).isSelected(), "NIE WYBRANO POPRAWNEJ OSOBY");
         driver.findElement(By.id("bdvCustomerDialogApply0")).click();
     }

@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class DriverAndWaits {
-    static WebDriver driver;
+    protected static WebDriver driver;
     protected static WebDriverWait driverWait;
 
     private final File file = new File("C:\\Users\\Kamil\\IdeaProjects\\CHROME_DRIVER_JEST_TU\\chromedriver.exe");
@@ -55,5 +55,10 @@ public class DriverAndWaits {
     public void waitForPageToBe(String DestinyUrl) {
         driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
                 .until(ExpectedConditions.urlToBe(DestinyUrl));
+    }
+    public void waitForElementToBeDisplayed(String id) {
+        WebElement element = driver.findElement(By.id(id));
+        driverWait.ignoring(StaleElementReferenceException.class).withTimeout(Duration.ofSeconds(30))
+                .until(ExpectedConditions.visibilityOf(element));
     }
 }
